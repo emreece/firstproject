@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+  <div class="my-5">
+    {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+      <h1>Hi!</h1>
+      <p class="lead">You can manage your task list.</p>
+    {% else %}
+      <h1>You can <a href="{{ path('app_login')}}">login</a> or <a href="{{ path('register')}}">register</a>.</h1>
+      <p class="lead">You can manage your task list after login.</p>
+    {% endif %}
+  </div>
+{% endblock %}

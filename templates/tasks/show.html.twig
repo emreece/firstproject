@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title%} {{ task.body }} {% endblock %}
+
+{% block body %}
+   <div class="py-5">
+        <h1>Task</h1>
+        <p>{{ task.body }}</p>
+        {% if task.isDone == true %}
+        <div class="alert alert-info" role="alert">
+            You have done this task.
+        </div>
+        {% else %}
+        <div class="alert alert-warning" role="alert">
+            You need to do this task.
+        </div>
+        {% endif %}
+   </div>
+<hr>
+  <a href="/task" class="btn btn-light">Go Back</a>
+  <a href="/task/update/{{ task.id }}" class="btn btn-primary">Update</a>
+{% endblock %}

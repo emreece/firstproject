@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title%}Update Task {% endblock %}
+
+{% block body %}
+  <div class="py-5">
+  <h1 class="mb-3">Update Task</h1>
+
+  {{ form_start(form) }}
+  {{ form_widget(form) }}
+  {{ form_end (form) }}
+  </div>
+  <a href="/task" class="btn btn-light">Go Back</a>
+{% endblock %}

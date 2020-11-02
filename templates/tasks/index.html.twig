@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title%} Tasks {% endblock %}
+
+{% block body %}
+
+  {% if tasks %}
+    <div class="user my-3">You logged as {{user.email}}. You can <a href="{{ path('app_logout') }}"> log out</a>.</div>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Task</th>
+          <th colspan="3">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        {%  for task in tasks %}
+            <tr>
+            <td>{{ task.body }}</td>
+            <td>
+                <a href="/task/{{ task.id }}" class="btn btn-dark">Show</a>
+            </td>
+            <td>
+                <a href="/task/update/{{ task.id }}" class="btn btn-info">Update</a>
+            </td>
+            <td>
+                <a href="/task/delete/{{ task.id }}" class="btn btn-danger">Delete</a>
+            </td>
+            </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  {% else %}
+    <div class="my-3">
+        <p>There is no any task.</p>
+        <a href="/task/new" class="btn btn-primary">You can create new one!</a>
+    </div>
+  {% endif %}
+
+{% endblock %}
